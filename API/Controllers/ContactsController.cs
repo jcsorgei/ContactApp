@@ -52,20 +52,21 @@ namespace API.Controllers
 
 
         [HttpPost]
-        public async Task<ActionResult<ContactDto>> CreateContact(ContactDto contactDto)
+        public async Task<ActionResult<Contact>> CreateContact(ContactDto contactDto)
         {
             if (ModelState.IsValid)
             {
-                _context.Contacts.Add(new Contact
+                var newContact = new Contact
                 {
                     FirstName = contactDto.FirstName,
                     LastName = contactDto.LastName,
                     Email = contactDto.Email,
                     PhoneNumber = contactDto.PhoneNumber
-                });
+                };
+                _context.Contacts.Add(newContact);
                 await _context.SaveChangesAsync();
 
-                return contactDto;
+                return newContact;
             }
 
             return BadRequest();

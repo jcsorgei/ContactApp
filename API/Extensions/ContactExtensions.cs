@@ -16,9 +16,9 @@ namespace API.Extensions
                 "firstNameDesc" => query.OrderByDescending(c => c.FirstName.ToLower()),
                 "lastName" => query.OrderBy(c => c.LastName.ToLower()),
                 "lastNameDesc" => query.OrderByDescending(c => c.LastName.ToLower()),
-                "email" => query.OrderByDescending(c => c.Email.ToLower()),
+                "email" => query.OrderBy(c => c.Email.ToLower()),
                 "emailDesc" => query.OrderByDescending(c => c.Email.ToLower()),
-                "phone" => query.OrderByDescending(c => c.PhoneNumber.ToLower()),
+                "phone" => query.OrderBy(c => c.PhoneNumber.ToLower()),
                 "phoneDesc" => query.OrderByDescending(c => c.PhoneNumber.ToLower()),
                 _ => query.OrderBy(p => p.FirstName.ToLower())
             };
